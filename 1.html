@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Synergy Flow</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --tech-track: #3b82f6;
+            --ed-track: #8b5cf6;
+            --bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 960px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            border: 1px solid #334155;
+        }
+
+        .header { text-align: center; margin-bottom: 40px; }
+        h1 { margin: 0; font-size: 2.2rem; letter-spacing: -1px; }
+        .badge { background: var(--tech-track); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; vertical-align: middle; }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr 180px 180px;
+            gap: 20px;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Parallel Track Styling */
+        .parallel-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: relative;
+        }
+
+        .parallel-container::before {
+            content: '';
+            position: absolute;
+            left: -20px; top: 50%; width: 20px; height: 2px; background: #475569;
+        }
+
+        .track {
+            padding: 15px;
+            border-radius: 12px;
+            background: #334155;
+            border: 1px dashed #64748b;
+            text-align: center;
+        }
+
+        .tech-track { border-color: var(--tech-track); border-style: solid; }
+        .ed-track { border-color: var(--ed-track); border-style: solid; }
+
+        .node {
+            padding: 15px;
+            background: #1e293b;
+            border: 2px solid #475569;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .node.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+            transform: translateY(-5px);
+            background: #2d3e5a;
+        }
+
+        .label { font-size: 0.9rem; font-weight: 600; display: block; margin-top: 8px; }
+        .sub-label { font-size: 0.7rem; opacity: 0.7; }
+
+        .desc-area {
+            margin-top: 40px;
+            padding: 20px;
+            background: #0f172a;
+            border-radius: 12px;
+            min-height: 60px;
+            border-left: 4px solid var(--primary);
+            color: #cbd5e1;
+        }
+
+        .arrow { color: #475569; font-size: 1.5rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Synergy Flow <span class="badge">Parallel Engine</span></h1>
+    </div>
+
+    <div class="flow-grid">
+        <div class="node active" id="n1">
+            <span class="label">FILE INGESTION</span>
+            <span class="sub-label">Auto-Trigger</span>
+        </div>
+
+        <div class="parallel-container">
+            <div class="track tech-track node" id="n2">
+                <span class="label">TECHNICAL TRACK</span>
+                <span class="sub-label">Auto-QC → Audit → Fixes (XML/Auto/Template)</span>
+            </div>
+            <div class="track ed-track node" id="n3">
+                <span class="label">EDITORIAL TRACK</span>
+                <span class="sub-label">Full Copyediting (CE)</span>
+            </div>
+        </div>
+
+        <div class="node" id="n4">
+            <span class="label">97% AUTO-PDF</span>
+            <span class="sub-label">Converged Stream</span>
+        </div>
+
+        <div class="node" id="n5">
+            <span class="label">SMART DISPATCH</span>
+            <span class="sub-label">Low-Confidence QC Only</span>
+        </div>
+    </div>
+
+    <div class="desc-area" id="desc">
+        Click a stage to see the parallel interaction logic.
+    </div>
+</div>
+
+<script>
+    const data = {
+        n1: "Files are split into two streams immediately upon entry. Metadata is harvested while raw data moves to Tech and content moves to Editorial.",
+        n2: "The Tech Track runs Auto-QC. Any errors go to the Audit List where auditors apply Template, Automation, or XML fixes without blocking the editors.",
+        n3: "Copyeditors work on the narrative and style in parallel. By the time they finish, the structural fixes from the Tech Track are already merged.",
+        n4: "Once both tracks signal 'Green', the system auto-paginates. 97% of pages require zero human intervention.",
+        n5: "The system isolates only the 3% 'Low Confidence' pages for final human sign-off before instant dispatch."
+    };
+
+    document.querySelectorAll('.node').forEach(node => {
+        node.addEventListener('click', () => {
+            document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+            node.classList.add('active');
+            document.getElementById('desc').innerText = data[node.id];
+        });
+    });
+</script>
+
+</body>
+</html>
