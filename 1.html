@@ -102,6 +102,53 @@
         }
 
         .arrow { color: #475569; font-size: 1.5rem; text-align: center; }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+            flex: 1;
+            max-width: 120px;
+        }
+
+        .nav-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: #475569;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-indicator {
+            text-align: center;
+            margin-top: 20px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -111,6 +158,33 @@
         <h1>Synergy Flow <span class="badge">Parallel Engine</span></h1>
     </div>
 
+    <div class="slide active" id="slide1">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 400px; text-align: center;">
+            <h1 style="font-size: 3.5rem; margin: 0 0 20px 0; background: linear-gradient(135deg, var(--tech-track), var(--ed-track)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                Synergy Flow
+            </h1>
+            <div style="font-size: 1.5rem; color: #94a3b8; margin-bottom: 40px;">
+                Parallel Engine for Automated Publishing
+            </div>
+            <div style="display: flex; gap: 30px; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--tech-track); font-weight: bold;">97%</div>
+                    <div style="color: #64748b; font-size: 0.9rem;">Automation</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--ed-track); font-weight: bold;">85%</div>
+                    <div style="color: #64748b; font-size: 0.9rem;">Time Saved</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--accent); font-weight: bold;">2x</div>
+                    <div style="color: #64748b; font-size: 0.9rem;">Faster</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide2">
+    <div style="min-height: 400px;">
     <div class="flow-grid">
         <div class="node active" id="n1">
             <span class="label">FILE INGESTION</span>
@@ -142,11 +216,97 @@
     <div class="desc-area" id="desc">
         Click a stage to see the parallel interaction logic.
     </div>
+    </div>
+    </div>
+
+    <div class="slide" id="slide3">
+        <div style="min-height: 400px;">
+        <h2 style="text-align: center; margin-bottom: 30px;">Quality Metrics Dashboard</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;">
+            <div style="background: #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--tech-track); font-weight: bold;">97%</div>
+                <div style="color: #94a3b8; margin-top: 8px;">Auto-PDF Success</div>
+            </div>
+            <div style="background: #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--ed-track); font-weight: bold;">3%</div>
+                <div style="color: #94a3b8; margin-top: 8px;">Manual QC Required</div>
+            </div>
+            <div style="background: #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">85%</div>
+                <div style="color: #94a3b8; margin-top: 8px;">Time Saved</div>
+            </div>
+        </div>
+
+        <div style="background: #0f172a; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent);">
+            <h3 style="margin-top: 0; color: var(--accent);">Key Benefits</h3>
+            <ul style="color: #cbd5e1; line-height: 1.8;">
+                <li>Parallel processing reduces turnaround time by 85%</li>
+                <li>QC will check pages only if the Auto QC marks the page as Error</li>
+                <li>Automated quality checks catch 97% of issues</li>
+                <li>Over a period os one year the issues gradually came down and only 1 or 2 issues per week was reported</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide4">
+        <div style="min-height: 400px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1>AI for Coding <span class="badge">KIRO</span></h1>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+            <div style="background: #334155; padding: 18px; border-radius: 12px; border-left: 4px solid var(--tech-track); transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                <div style="color: var(--tech-track); font-weight: bold; margin-bottom: 8px;">1. Automated EPIC, Story and Task Creation</div>
+                <div style="color: #94a3b8; font-size: 0.85rem;">Automatically generate project structure and requirements</div>
+            </div>
+            
+            <div style="background: #334155; padding: 18px; border-radius: 12px; border-left: 4px solid var(--ed-track); transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                <div style="color: var(--ed-track); font-weight: bold; margin-bottom: 8px;">2. Code Development</div>
+                <div style="color: #94a3b8; font-size: 0.85rem;">AI-assisted code generation and implementation</div>
+            </div>
+            
+            <div style="background: #334155; padding: 18px; border-radius: 12px; border-left: 4px solid var(--accent); transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                <div style="color: var(--accent); font-weight: bold; margin-bottom: 8px;">3. Code Migration</div>
+                <div style="color: #94a3b8; font-size: 0.85rem;">Seamless migration between frameworks and languages</div>
+            </div>
+            
+            <div style="background: #334155; padding: 18px; border-radius: 12px; border-left: 4px solid var(--tech-track); transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                <div style="color: var(--tech-track); font-weight: bold; margin-bottom: 8px;">4. Code Refactoring</div>
+                <div style="color: #94a3b8; font-size: 0.85rem;">Optimize and improve existing codebase</div>
+            </div>
+            
+            <div style="background: #334155; padding: 18px; border-radius: 12px; border-left: 4px solid var(--ed-track); transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                <div style="color: var(--ed-track); font-weight: bold; margin-bottom: 8px;">5. Testing</div>
+                <div style="color: #94a3b8; font-size: 0.85rem;">Test Case, Test Data, Selenium-based automated testing</div>
+            </div>
+            
+            <div style="background: #334155; padding: 18px; border-radius: 12px; border-left: 4px solid var(--accent); transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                <div style="color: var(--accent); font-weight: bold; margin-bottom: 8px;">6. Documentation</div>
+                <div style="color: #94a3b8; font-size: 0.85rem;">Auto-generate comprehensive code documentation</div>
+            </div>
+            
+            <div style="background: #334155; padding: 18px; border-radius: 12px; border-left: 4px solid var(--tech-track); transition: 0.3s; cursor: pointer; grid-column: span 2;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                <div style="color: var(--tech-track); font-weight: bold; margin-bottom: 8px;">7. User Guide</div>
+                <div style="color: #94a3b8; font-size: 0.85rem;">Create user-friendly guides and tutorials</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+    
+    <div class="slide-indicator">
+        <span id="slideNum">Slide 1 of 2</span>
+    </div>
 </div>
 
 <script>
     const data = {
-        n1: "Files are split into two streams immediately upon entry. Metadata is harvested while raw data moves to Tech and content moves to Editorial.",
+        n1: "Files are passed into two streams immediately upon entry. Raw MS is pushed in to the AI engine to generate XML and from XML generate PDF, parallelly files are passed to the editorial process. ",
         n2: "The Tech Track runs Auto-QC. Any errors go to the Audit List where auditors apply Template, Automation, or XML fixes without blocking the editors.",
         n3: "Copyeditors work on the narrative and style in parallel. By the time they finish, the structural fixes from the Tech Track are already merged.",
         n4: "Once both tracks signal 'Green', the system auto-paginates. 97% of pages require zero human intervention.",
@@ -160,6 +320,35 @@
             document.getElementById('desc').innerText = data[node.id];
         });
     });
+
+    let currentSlide = 1;
+    const totalSlides = 4;
+
+    function changeSlide(direction) {
+        currentSlide += direction;
+        
+        if (currentSlide < 1) currentSlide = 1;
+        if (currentSlide > totalSlides) currentSlide = totalSlides;
+        
+        document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+        document.getElementById('slide' + currentSlide).classList.add('active');
+        
+        document.getElementById('prevBtn').disabled = currentSlide === 1;
+        document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        
+        document.getElementById('slideNum').textContent = `Slide ${currentSlide} of ${totalSlides}`;
+        
+        // Hide header on slide 4
+        const header = document.querySelector('.header');
+        if (currentSlide === 4) {
+            header.style.display = 'none';
+        } else {
+            header.style.display = 'block';
+        }
+    }
+
+    // Initialize button states
+    changeSlide(0);
 </script>
 
 </body>
