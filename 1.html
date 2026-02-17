@@ -250,6 +250,31 @@
     </div>
 
     <div class="slide" id="slide4">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 400px; text-align: center;">
+            <h1 style="font-size: 3.5rem; margin: 0 0 20px 0; background: linear-gradient(135deg, var(--tech-track), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                AI for Coding
+            </h1>
+            <div style="font-size: 1.5rem; color: #94a3b8; margin-bottom: 40px;">
+                KIRO - Intelligent Development Assistant
+            </div>
+            <div style="display: flex; gap: 30px; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--tech-track); font-weight: bold;">7</div>
+                    <div style="color: #64748b; font-size: 0.9rem;">Core Features</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--ed-track); font-weight: bold;">90%</div>
+                    <div style="color: #64748b; font-size: 0.9rem;">Code Quality</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; color: var(--accent); font-weight: bold;">5x</div>
+                    <div style="color: #64748b; font-size: 0.9rem;">Productivity</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide5">
         <div style="min-height: 400px;">
         <div style="text-align: center; margin-bottom: 40px;">
             <h1>AI for Coding <span class="badge">KIRO</span></h1>
@@ -294,6 +319,39 @@
         </div>
     </div>
 
+    <div class="slide" id="slide6">
+        <div style="min-height: 400px;">
+        <h2 style="text-align: center; margin-bottom: 30px;">KIRO Quality Metrics Dashboard</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;">
+            <div style="background: #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--tech-track); font-weight: bold;">90%</div>
+                <div style="color: #94a3b8; margin-top: 8px;">Code Quality Score</div>
+            </div>
+            <div style="background: #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--ed-track); font-weight: bold;">5x</div>
+                <div style="color: #94a3b8; margin-top: 8px;">Development Speed</div>
+            </div>
+            <div style="background: #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">80%</div>
+                <div style="color: #94a3b8; margin-top: 8px;">Test Coverage</div>
+            </div>
+        </div>
+
+        <div style="background: #0f172a; padding: 20px; border-radius: 12px; border-left: 4px solid var(--tech-track);">
+            <h3 style="margin-top: 0; color: var(--tech-track);">Key Achievements</h3>
+            <ul style="color: #cbd5e1; line-height: 1.8;">
+                <li>Saves significant project management time with automated EPIC and story creation</li>
+                <li>Reduces developer time through AI-assisted code generation and refactoring</li>
+                <li>Minimizes testing time with automated test case generation and execution</li>
+                <li>Quick POC delivery in hours instead of days</li>
+                <li>MVP development completed in a day</li>
+                <li>MMP (Minimum Marketable Product) ready in a couple of days</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
     <div class="nav-buttons">
         <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
         <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
@@ -322,7 +380,7 @@
     });
 
     let currentSlide = 1;
-    const totalSlides = 4;
+    const totalSlides = 6;
 
     function changeSlide(direction) {
         currentSlide += direction;
@@ -338,9 +396,9 @@
         
         document.getElementById('slideNum').textContent = `Slide ${currentSlide} of ${totalSlides}`;
         
-        // Hide header on slide 4
+        // Hide header on slide 4, 5, and 6
         const header = document.querySelector('.header');
-        if (currentSlide === 4) {
+        if (currentSlide === 4 || currentSlide === 5 || currentSlide === 6) {
             header.style.display = 'none';
         } else {
             header.style.display = 'block';
