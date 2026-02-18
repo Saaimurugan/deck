@@ -1103,13 +1103,8 @@
         </div>
     </div>
 
-    <div class="nav-buttons">
-        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
-        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
-    </div>
-    
     <div class="slide-indicator">
-        <span id="slideNum">Slide 1 of 2</span>
+        <span id="slideNum">Slide 1 of 26</span>
     </div>
 </div>
 
@@ -1142,9 +1137,6 @@
         document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
         document.getElementById('slide' + currentSlide).classList.add('active');
         
-        document.getElementById('prevBtn').disabled = currentSlide === 1;
-        document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
-        
         document.getElementById('slideNum').textContent = `Slide ${currentSlide} of ${totalSlides}`;
         
         // Hide header on slide 1 and slides 5 onwards
@@ -1158,6 +1150,29 @@
 
     // Initialize button states
     changeSlide(0);
+
+    // Keyboard navigation like PowerPoint
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === 'ArrowRight' || event.key === ' ') {
+            // Next slide
+            event.preventDefault();
+            changeSlide(1);
+        } else if (event.key === 'ArrowLeft' || event.key === 'Backspace') {
+            // Previous slide
+            event.preventDefault();
+            changeSlide(-1);
+        } else if (event.key === 'Home') {
+            // First slide
+            event.preventDefault();
+            currentSlide = 1;
+            changeSlide(0);
+        } else if (event.key === 'End') {
+            // Last slide
+            event.preventDefault();
+            currentSlide = totalSlides;
+            changeSlide(0);
+        }
+    });
 
     function showProjectDesc(project) {
         const descriptions = {
