@@ -23,25 +23,27 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 5px;
         }
 
         .container {
-            width: 960px;
+            width: 100%;
+            max-width: 900px;
             background: #1e293b;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.5);
             border: 1px solid #334155;
         }
 
-        .header { text-align: center; margin-bottom: 40px; }
-        h1 { margin: 0; font-size: 2.2rem; letter-spacing: -1px; }
-        .badge { background: var(--tech-track); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; vertical-align: middle; }
+        .header { text-align: center; margin-bottom: 12px; }
+        h1 { margin: 0; font-size: 1.2rem; letter-spacing: -0.3px; }
+        .badge { background: var(--tech-track); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; vertical-align: middle; }
 
         .flow-grid {
             display: grid;
-            grid-template-columns: 180px 1fr 180px 180px;
-            gap: 20px;
+            grid-template-columns: 120px 1fr 120px 120px;
+            gap: 10px;
             align-items: center;
             position: relative;
         }
@@ -50,19 +52,19 @@
         .parallel-container {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 15px;
             position: relative;
         }
 
         .parallel-container::before {
             content: '';
             position: absolute;
-            left: -20px; top: 50%; width: 20px; height: 2px; background: #475569;
+            left: -12px; top: 50%; width: 12px; height: 1px; background: #475569;
         }
 
         .track {
-            padding: 15px;
-            border-radius: 12px;
+            padding: 8px;
+            border-radius: 6px;
             background: #334155;
             border: 1px dashed #64748b;
             text-align: center;
@@ -72,10 +74,10 @@
         .ed-track { border-color: var(--ed-track); border-style: solid; }
 
         .node {
-            padding: 15px;
+            padding: 8px;
             background: #1e293b;
-            border: 2px solid #475569;
-            border-radius: 12px;
+            border: 1px solid #475569;
+            border-radius: 6px;
             text-align: center;
             transition: 0.3s;
             cursor: pointer;
@@ -83,28 +85,33 @@
 
         .node.active {
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
-            transform: translateY(-5px);
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
             background: #2d3e5a;
         }
 
-        .label { font-size: 0.9rem; font-weight: 600; display: block; margin-top: 8px; }
-        .sub-label { font-size: 0.7rem; opacity: 0.7; }
+        .label { font-size: 0.7rem; font-weight: 600; display: block; margin-top: 4px; }
+        .sub-label { font-size: 0.6rem; opacity: 0.7; }
 
         .desc-area {
-            margin-top: 40px;
-            padding: 20px;
+            margin-top: 12px;
+            padding: 10px;
             background: #0f172a;
-            border-radius: 12px;
-            min-height: 60px;
-            border-left: 4px solid var(--primary);
+            border-radius: 6px;
+            min-height: 35px;
+            border-left: 2px solid var(--primary);
             color: #cbd5e1;
+            font-size: 0.7rem;
+            line-height: 1.4;
         }
 
-        .arrow { color: #475569; font-size: 1.5rem; text-align: center; }
+        .arrow { color: #475569; font-size: 1.1rem; text-align: center; }
 
         .slide {
             display: none;
+            height: 500px;
+            overflow: hidden;
+            font-size: 0.75rem;
         }
 
         .slide.active {
@@ -114,40 +121,38 @@
         .nav-buttons {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
-            gap: 20px;
+            margin-top: 10px;
+            gap: 10px;
         }
 
         .nav-btn {
-            padding: 8px 16px;
+            padding: 5px 12px;
             background: var(--primary);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             font-weight: 600;
             transition: 0.3s;
             flex: 1;
-            max-width: 120px;
+            max-width: 90px;
         }
 
         .nav-btn:hover {
             background: #1d4ed8;
-            transform: translateY(-2px);
         }
 
         .nav-btn:disabled {
             background: #475569;
             cursor: not-allowed;
-            transform: none;
         }
 
         .slide-indicator {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 8px;
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 0.7rem;
         }
     </style>
 </head>
@@ -819,33 +824,33 @@
 
     <div class="slide" id="slide20">
         <div style="min-height: 400px;">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h1>Product Development <span class="badge">Portfolio</span></h1>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h1 style="font-size: 1.1rem;">Product Development <span class="badge">Portfolio</span></h1>
         </div>
         
-        <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-            <div style="background: #334155; padding: 25px; border-radius: 12px; border-left: 4px solid var(--tech-track); transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
-                <div style="color: var(--tech-track); font-weight: bold; margin-bottom: 12px; font-size: 1.3rem;">1. Lanstad</div>
-                <div style="color: #cbd5e1; font-size: 1rem; margin-bottom: 10px;">Workflow Automation and Publishing Suite</div>
-                <div style="display: flex; gap: 10px; margin-top: 12px;">
-                    <span style="background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; color: #60a5fa;">React</span>
-                    <span style="background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; color: #a78bfa;">PHP (Laravel)</span>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 12px;">
+            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid var(--tech-track);">
+                <div style="color: var(--tech-track); font-weight: bold; margin-bottom: 6px; font-size: 0.95rem;">1. Lanstad</div>
+                <div style="color: #cbd5e1; font-size: 0.75rem; margin-bottom: 6px;">Workflow Automation and Publishing Suite</div>
+                <div style="display: flex; gap: 6px; margin-top: 6px;">
+                    <span style="background: #1e293b; padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; color: #60a5fa;">React</span>
+                    <span style="background: #1e293b; padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; color: #a78bfa;">PHP (Laravel)</span>
                 </div>
             </div>
             
-            <div style="background: #334155; padding: 25px; border-radius: 12px; border-left: 4px solid var(--ed-track); transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
-                <div style="color: var(--ed-track); font-weight: bold; margin-bottom: 12px; font-size: 1.3rem;">2. Honeycomb Manager</div>
-                <div style="color: #cbd5e1; font-size: 1rem; margin-bottom: 10px;">Enterprise Management Platform</div>
-                <div style="display: flex; gap: 10px; margin-top: 12px;">
-                    <span style="background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; color: #60a5fa;">React</span>
-                    <span style="background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; color: #f59e0b;">.NET Entity Framework</span>
+            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid var(--ed-track);">
+                <div style="color: var(--ed-track); font-weight: bold; margin-bottom: 6px; font-size: 0.95rem;">2. Honeycomb Manager</div>
+                <div style="color: #cbd5e1; font-size: 0.75rem; margin-bottom: 6px;">Enterprise Management Platform</div>
+                <div style="display: flex; gap: 6px; margin-top: 6px;">
+                    <span style="background: #1e293b; padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; color: #60a5fa;">React</span>
+                    <span style="background: #1e293b; padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; color: #f59e0b;">.NET Entity Framework</span>
                 </div>
             </div>
         </div>
         
-        <div style="background: #0f172a; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin-top: 25px;">
-            <h3 style="margin-top: 0; color: var(--accent);">Technology Stack</h3>
-            <div style="color: #cbd5e1; line-height: 1.8; font-size: 0.9rem;">
+        <div style="background: #0f172a; padding: 12px; border-radius: 8px; border-left: 3px solid var(--accent); margin-top: 15px;">
+            <h3 style="margin-top: 0; font-size: 0.85rem; color: var(--accent);">Technology Stack</h3>
+            <div style="color: #cbd5e1; line-height: 1.5; font-size: 0.7rem;">
                 Full-stack enterprise solutions built with modern frameworks: React for responsive frontends, Laravel and .NET for robust backends, delivering scalable workflow automation and management capabilities.
             </div>
         </div>
@@ -912,93 +917,93 @@
 
     <div class="slide" id="slide23">
         <div style="min-height: 400px;">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h1>AI & ML Projects <span class="badge">Portfolio</span></h1>
+        <div style="text-align: center; margin-bottom: 15px;">
+            <h1 style="font-size: 1rem;">AI & ML Projects <span class="badge">Portfolio</span></h1>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.8rem;">
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; font-size: 0.65rem;">
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Alt Text Creation</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">AI Translation</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
-                <div style="color: #f59e0b; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">TESTING</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #f59e0b;">
+                <div style="color: #f59e0b; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">TESTING</div>
                 <div style="color: #cbd5e1;">AI Indexing</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Language Assessment</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Content Structuring</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Content Development</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
-                <div style="color: #f59e0b; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">TESTING</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #f59e0b;">
+                <div style="color: #f59e0b; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">TESTING</div>
                 <div style="color: #cbd5e1;">Image Forensics</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #64748b;">
-                <div style="color: #64748b; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">WIP</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #64748b;">
+                <div style="color: #64748b; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">WIP</div>
                 <div style="color: #cbd5e1;">ScholarFinder</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Document Similarity</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Image Processing</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">DEI Check</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Image DEI</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">AI Powered ChatBot</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Taxonomy Building</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Media Tagging</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #8b5cf6;">
-                <div style="color: #8b5cf6; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">POC</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #8b5cf6;">
+                <div style="color: #8b5cf6; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">POC</div>
                 <div style="color: #cbd5e1;">AI Detection</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
-                <div style="color: #f59e0b; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">TESTING</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #f59e0b;">
+                <div style="color: #f59e0b; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">TESTING</div>
                 <div style="color: #cbd5e1;">MSXpert</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
-                <div style="color: #f59e0b; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">TESTING</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #f59e0b;">
+                <div style="color: #f59e0b; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">TESTING</div>
                 <div style="color: #cbd5e1;">CompareXpert</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Data Labelling</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">LIVE</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #10b981;">
+                <div style="color: #10b981; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">LIVE</div>
                 <div style="color: #cbd5e1;">Web Scraping</div>
             </div>
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid #8b5cf6;">
-                <div style="color: #8b5cf6; font-weight: bold; font-size: 0.7rem; margin-bottom: 4px;">POC</div>
+            <div style="background: #334155; padding: 6px; border-radius: 6px; border-left: 2px solid #8b5cf6;">
+                <div style="color: #8b5cf6; font-weight: bold; font-size: 0.55rem; margin-bottom: 2px;">POC</div>
                 <div style="color: #cbd5e1;">Actual Text for Equations</div>
             </div>
         </div>
@@ -1039,6 +1044,35 @@
                 <li>Continuous innovation pipeline from PoC to production</li>
             </ul>
         </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide25">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 400px; text-align: center;">
+            <h1 style="font-size: 2.5rem; margin: 0 0 20px 0; background: linear-gradient(135deg, var(--tech-track), var(--ed-track), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                Summary
+            </h1>
+            <div style="font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px;">
+                Complete AI & Automation Portfolio
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; max-width: 600px;">
+                <div style="background: #334155; padding: 15px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 1.3rem; color: var(--tech-track); font-weight: bold;">8 Sections</div>
+                    <div style="color: #94a3b8; margin-top: 5px; font-size: 0.8rem;">Complete Coverage</div>
+                </div>
+                <div style="background: #334155; padding: 15px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 1.3rem; color: var(--ed-track); font-weight: bold;">22 Projects</div>
+                    <div style="color: #94a3b8; margin-top: 5px; font-size: 0.8rem;">AI/ML Solutions</div>
+                </div>
+                <div style="background: #334155; padding: 15px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 1.3rem; color: var(--accent); font-weight: bold;">2 Products</div>
+                    <div style="color: #94a3b8; margin-top: 5px; font-size: 0.8rem;">Enterprise Ready</div>
+                </div>
+                <div style="background: #334155; padding: 15px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 1.3rem; color: var(--tech-track); font-weight: bold;">15 Live</div>
+                    <div style="color: #94a3b8; margin-top: 5px; font-size: 0.8rem;">Production Systems</div>
+                </div>
+            </div>
         </div>
     </div>
 
