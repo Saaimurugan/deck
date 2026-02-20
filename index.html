@@ -129,10 +129,39 @@
             height: 500px;
             overflow: hidden;
             font-size: 0.78rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
 
         .slide.active {
             display: block;
+            animation: slideIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide.slide-out {
+            animation: slideOut 0.3s ease-in-out forwards;
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
         }
 
         .nav-buttons {
@@ -1401,13 +1430,30 @@
     const totalSlides = 29;
 
     function changeSlide(direction) {
+        const oldSlide = currentSlide;
         currentSlide += direction;
         
         if (currentSlide < 1) currentSlide = 1;
         if (currentSlide > totalSlides) currentSlide = totalSlides;
         
-        document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
-        document.getElementById('slide' + currentSlide).classList.add('active');
+        if (oldSlide !== currentSlide) {
+            // Add slide-out animation to current slide
+            const oldSlideElement = document.getElementById('slide' + oldSlide);
+            if (oldSlideElement) {
+                oldSlideElement.classList.add('slide-out');
+                
+                // Wait for animation to complete before switching
+                setTimeout(() => {
+                    oldSlideElement.classList.remove('active', 'slide-out');
+                    
+                    // Show new slide with slide-in animation
+                    const newSlideElement = document.getElementById('slide' + currentSlide);
+                    if (newSlideElement) {
+                        newSlideElement.classList.add('active');
+                    }
+                }, 300);
+            }
+        }
         
         document.getElementById('slideNum').textContent = `Slide ${currentSlide} of ${totalSlides}`;
         
