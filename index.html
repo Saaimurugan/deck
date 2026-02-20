@@ -751,9 +751,6 @@
 
     <div class="slide" id="slide12">
         <div style="min-height: 400px; padding: 20px;">
-        <div style="text-align: center; margin-bottom: 35px;">
-            <h1 style="font-size: 1.3rem;">Graphic Processing <span class="badge">Workflow</span></h1>
-        </div>
         
         <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px;">
             <div style="background: linear-gradient(135deg, #334155, #1e293b); padding: 25px 20px; border-radius: 15px; border: 3px solid var(--tech-track); text-align: center; min-width: 160px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);">
@@ -1531,7 +1528,7 @@
         
         document.getElementById('slideNum').textContent = `Slide ${currentSlide} of ${totalSlides}`;
         
-        // Show header only on slides 3, 4, 5, 8, 9, 10
+        // Show header only on slides 3, 4, 5, 8, 9, 10, 12, 13
         const header = document.querySelector('.header');
         const headerTitle = header.querySelector('h1');
         
@@ -1543,6 +1540,10 @@
             // AI for Coding KIRO section
             header.style.display = 'block';
             headerTitle.innerHTML = 'AI for Coding <span class="badge">KIRO</span>';
+        } else if (currentSlide >= 12 && currentSlide <= 13) {
+            // Graphic Processing section
+            header.style.display = 'block';
+            headerTitle.innerHTML = 'Graphic Processing <span class="badge">Workflow</span>';
         } else {
             header.style.display = 'none';
         }
