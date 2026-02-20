@@ -339,9 +339,9 @@
         <!-- Step 2: Auto-QC -->
         <div class="node" id="n2" style="padding: 16px; border-color: var(--tech-track); grid-row: 1;">
             <span class="label" style="font-size: 0.95rem; font-weight: 700;">STEP 2</span>
-            <span class="label" style="font-size: 0.9rem; font-weight: 700; margin-top: 6px;">AUTO-QC</span>
+            <span class="label" style="font-size: 0.9rem; font-weight: 700; margin-top: 6px;">AUTO FLOW</span>
             <div style="margin-top: 8px; padding: 6px; background: rgba(59, 130, 246, 0.15); border-radius: 6px; border: 1.5px solid rgba(59, 130, 246, 0.4);">
-                <span class="sub-label" style="font-size: 0.7rem;">Quality Check</span>
+                <span class="sub-label" style="font-size: 0.7rem;">XML and PDF Generation</span>
             </div>
         </div>
 
@@ -356,7 +356,7 @@
             <span class="label" style="font-size: 0.95rem; font-weight: 700;">STEP 3</span>
             <span class="label" style="font-size: 0.9rem; font-weight: 700; margin-top: 6px;">AUDIT</span>
             <div style="margin-top: 8px; padding: 6px; background: rgba(59, 130, 246, 0.15); border-radius: 6px; border: 1.5px solid rgba(59, 130, 246, 0.4);">
-                <span class="sub-label" style="font-size: 0.7rem;">Error Review</span>
+                <span class="sub-label" style="font-size: 0.7rem;">Auto QC</span>
             </div>
         </div>
 
@@ -368,7 +368,7 @@
 
         <!-- Step 4: Automation -->
         <div class="track tech-track node" id="n4" style="padding: 14px; grid-row: 1;">
-            <span class="label" style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 8px;">STEP 4A: AUTOMATION</span>
+            <span class="label" style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 8px;">STEP 4: AUTOMATION</span>
             <div style="display: grid; grid-template-columns: 1fr; gap: 6px;">
                 <div style="padding: 5px 8px; background: rgba(59, 130, 246, 0.2); border-radius: 5px; border: 1.5px solid rgba(59, 130, 246, 0.4); font-size: 0.65rem; text-align: center; font-weight: 600;">XML Automation</div>
                 <div style="padding: 5px 8px; background: rgba(59, 130, 246, 0.2); border-radius: 5px; border: 1.5px solid rgba(59, 130, 246, 0.4); font-size: 0.65rem; text-align: center; font-weight: 600;">Template Automation</div>
@@ -393,7 +393,7 @@
         <!-- Row 2: Spacer -->
         <div style="grid-row: 2; grid-column: 1 / -1;"></div>
 
-        <!-- Row 3: Editorial Track (spans from Step 1 to Step 4A) -->
+        <!-- Row 3: Editorial Track (spans from Step 1 to Step 4) -->
         <div style="grid-row: 3; grid-column: 1; display: flex; align-items: center; justify-content: center;">
             <!-- Vertical line from File Ingestion down -->
             <div style="position: absolute; width: 2px; height: 20px; background: #8b5cf6; top: -20px;"></div>
@@ -401,9 +401,9 @@
 
         <div style="grid-row: 3; grid-column: 2;"></div>
 
-        <!-- Step 4B: Editorial Track (spans multiple columns) -->
+        <!-- Step 4: Editorial Track (spans multiple columns) -->
         <div class="track ed-track node" id="n5" style="padding: 14px; grid-row: 3; grid-column: 3 / 8; border: 2px solid var(--ed-track);">
-            <span class="label" style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 8px;">STEP 4B: EDITORIAL (Parallel Process)</span>
+            <span class="label" style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 8px;">EDITORIAL (Parallel Process)</span>
             <div style="padding: 8px; background: rgba(139, 92, 246, 0.15); border-radius: 6px; border: 1.5px solid rgba(139, 92, 246, 0.4);">
                 <span class="sub-label" style="font-size: 0.7rem; font-weight: 600;">Input Issues Addressed to Copyeditors - Runs in parallel with Steps 2, 3, and 4</span>
             </div>
@@ -730,7 +730,7 @@
                 Graphic Processing
             </h1>
             <div style="font-size: 1.5rem; color: #94a3b8; margin-bottom: 40px;">
-                AI-Powered Image Optimization
+                AI-Powered Image Processing
             </div>
             <div style="display: flex; gap: 30px; margin-top: 20px;">
                 <div style="text-align: center;">
@@ -1479,7 +1479,7 @@
         n2: "Step 2: Auto-QC performs automated quality checks on all files, identifying potential errors and issues that need attention in the technical track.",
         n3: "Step 3: Audit reviews the Auto-QC results, categorizing issues and determining the appropriate resolution path for each error type.",
         n4: "Step 4: Automation Track applies XML fixes and template automation to resolve technical issues without manual intervention.",
-        n5: "Step 4B: Editorial Track runs in parallel from Step 1, with copyeditors addressing input issues throughout the entire technical process (Steps 2, 3, and 4A).",
+        n5: "Editorial Track runs in parallel from Step 1, with copyeditors addressing input issues throughout the entire technical process (Steps 2, 3, and 4A).",
         n6: "Step 5: Smart Dispatch merges both tracks and automatically processes 97% of files, sending only low-confidence items for final human review before delivery."
     };
 
