@@ -215,7 +215,7 @@
                     <div style="color: #64748b; font-size: 0.9rem;">Time Saved</div>
                 </div>
                 <div style="text-align: center;">
-                    <div style="font-size: 2rem; color: var(--accent); font-weight: bold;">2x</div>
+                    <div style="font-size: 2rem; color: var(--accent); font-weight: bold;">10x</div>
                     <div style="color: #64748b; font-size: 0.9rem;">Faster</div>
                 </div>
             </div>
@@ -1152,6 +1152,14 @@
 
     // Initialize button states
     changeSlide(0);
+
+    // Click anywhere to advance slide
+    document.addEventListener('click', function(event) {
+        // Don't advance if clicking on interactive elements
+        if (!event.target.closest('button') && !event.target.closest('a')) {
+            changeSlide(1);
+        }
+    });
 
     // Keyboard navigation like PowerPoint
     document.addEventListener('keydown', function(event) {
