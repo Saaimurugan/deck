@@ -529,7 +529,7 @@
     <div class="slide" id="slide8">
         <div style="min-height: 400px;">
         <div style="text-align: center; margin-bottom: 20px;">
-            <h1 style="font-size: 1.1rem;">Improve Developer Productivity <span class="badge">KIRO</span></h1>
+            <h1 style="font-size: 1.1rem;">Improve Developer Productivity</h1>
         </div>
         
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
@@ -1477,6 +1477,10 @@
     <div class="slide-indicator">
         <span id="slideNum">Slide 1 of 28</span>
     </div>
+    
+    <button id="fullscreenBtn" onclick="enterFullscreen()" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: 0.3s; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" onmouseover="this.style.background='#1d4ed8'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='var(--primary)'; this.style.transform='scale(1)'">
+        🖥️ Presentation Mode
+    </button>
 </div>
 
 <script>
@@ -1658,10 +1662,22 @@
         }
     }
 
-    // Trigger fullscreen on page load
+    // Hide/show fullscreen button based on fullscreen state
+    document.addEventListener('fullscreenchange', function() {
+        const btn = document.getElementById('fullscreenBtn');
+        if (document.fullscreenElement) {
+            btn.style.display = 'none';
+        } else {
+            btn.style.display = 'block';
+        }
+    });
+
+    // Trigger fullscreen on page load (will fail due to browser security, but button is available)
     window.addEventListener('load', function() {
-        // Small delay to ensure page is fully loaded
-        setTimeout(enterFullscreen, 100);
+        // Try to enter fullscreen (will likely fail due to browser restrictions)
+        setTimeout(function() {
+            enterFullscreen();
+        }, 100);
     });
 
     // Also allow F11 or F key to toggle fullscreen
