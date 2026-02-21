@@ -1171,7 +1171,7 @@
         </div>
         
         <div style="display: grid; grid-template-columns: 1fr; gap: 12px;">
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid var(--tech-track);">
+            <div onclick="showProductDesc('lanstad')" style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid var(--tech-track); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
                 <div style="color: var(--tech-track); font-weight: bold; margin-bottom: 6px; font-size: 0.95rem;">1. Lanstad</div>
                 <div style="color: #cbd5e1; font-size: 0.75rem; margin-bottom: 6px;">Workflow Automation and Publishing Suite</div>
                 <div style="display: flex; gap: 6px; margin-top: 6px;">
@@ -1180,7 +1180,7 @@
                 </div>
             </div>
             
-            <div style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid var(--ed-track);">
+            <div onclick="showProductDesc('honeycomb')" style="background: #334155; padding: 12px; border-radius: 8px; border-left: 3px solid var(--ed-track); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(139, 92, 246, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
                 <div style="color: var(--ed-track); font-weight: bold; margin-bottom: 6px; font-size: 0.95rem;">2. Honeycomb Manager</div>
                 <div style="color: #cbd5e1; font-size: 0.75rem; margin-bottom: 6px;">Enterprise Management Platform</div>
                 <div style="display: flex; gap: 6px; margin-top: 6px;">
@@ -1190,9 +1190,9 @@
             </div>
         </div>
         
-        <div style="background: #0f172a; padding: 12px; border-radius: 8px; border-left: 3px solid var(--accent); margin-top: 15px;">
-            <h3 style="margin-top: 0; font-size: 0.85rem; color: var(--accent);">Technology Stack</h3>
-            <div style="color: #cbd5e1; line-height: 1.5; font-size: 0.7rem;">
+        <div id="productDescBox" style="background: #0f172a; padding: 12px; border-radius: 8px; border-left: 3px solid var(--accent); margin-top: 15px;">
+            <h3 style="margin-top: 0; font-size: 0.85rem; color: var(--accent);" id="productDescTitle">Technology Stack</h3>
+            <div style="color: #cbd5e1; line-height: 1.5; font-size: 0.7rem;" id="productDescText">
                 Full-stack enterprise solutions built with modern frameworks: React for responsive frontends, Laravel and .NET for robust backends, delivering scalable workflow automation and management capabilities.
             </div>
         </div>
@@ -1614,6 +1614,29 @@
         
         if (descriptions[project]) {
             descText.textContent = descriptions[project];
+            descBox.style.display = 'block';
+        }
+    }
+
+    function showProductDesc(product) {
+        const descriptions = {
+            'lanstad': {
+                title: 'Lanstad - Workflow Automation and Publishing Suite',
+                text: 'Lanstad is Deanta\'s cloud-based, AI-enhanced publishing production platform designed to streamline and modernize the traditional workflows used by academic and professional publishers. Built as an XML-first, SaaS solution with scalable architecture, Lanstad brings project management, real-time XML editing, proofing, automated typesetting, indexing, communication tools, and content transformation together in a single platform, reducing manual work, cutting costs, improving accuracy, and simplifying complex production tasks. It integrates with other systems and supports Word, LaTeX, and image formats, enabling publishers to automate ingestion, editing, and delivery processes while maintaining full control of their workflows. Deanta also offers structured onboarding, training, and global support alongside the platform, and licenses Lanstad to publishers wishing to run their production operations in-house.<br><br><strong>Key Features:</strong><ul style="margin-top: 8px; padding-left: 20px;"><li>Workflow Management System & Management Information System</li><li>Authoring and Proofing System</li><li>Author Query Management & Automated XML and PDF generation</li></ul>'
+            },
+            'honeycomb': {
+                title: 'HoneyComb Manager - Enterprise Asset Management',
+                text: 'HoneyComb Manager is a scalable vault and physical asset management system that enables organizations to centrally store, protect, track, and manage media archives and physical assets with complete visibility. It offers smart cataloguing aligned with international archival standards, customizable workflows, real-time movement tracking, and optional IoT-based monitoring using RFID, GPS, and NFC to reduce loss and misplacement. Built on a modern microservices architecture, HoneyComb integrates seamlessly with MAM, DAM, and ERP systems via APIs, supports secure cloud storage, and can be rapidly implemented and scaled from small collections to millions of assets—helping archivists and content owners protect, access, and unlock greater value from their holdings.<br><br><strong>Key Features:</strong><ul style="margin-top: 8px; padding-left: 20px;"><li>Media Asset Management</li><li>IoT-Based and CV-Based Asset Tracking</li><li>Smart Prediction of restoration efforts</li><li>Metadata Management</li></ul>'
+            }
+        };
+        
+        const descBox = document.getElementById('productDescBox');
+        const descTitle = document.getElementById('productDescTitle');
+        const descText = document.getElementById('productDescText');
+        
+        if (descriptions[product]) {
+            descTitle.textContent = descriptions[product].title;
+            descText.innerHTML = descriptions[product].text;
             descBox.style.display = 'block';
         }
     }
