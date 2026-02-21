@@ -1674,6 +1674,37 @@
 
     // Trigger fullscreen on page load (will fail due to browser security, but button is available)
     window.addEventListener('load', function() {
+        // Check if device is mobile
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        
+        if (isMobile) {
+            // Create mobile warning overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.95); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;';
+            
+            const messageBox = document.createElement('div');
+            messageBox.style.cssText = 'background: #1e293b; padding: 30px; border-radius: 16px; max-width: 500px; text-align: center; border: 2px solid #2563eb; box-shadow: 0 20px 40px rgba(0,0,0,0.5);';
+            
+            messageBox.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 20px;">💻</div>
+                <h2 style="color: #2563eb; margin: 0 0 15px 0; font-size: 1.5rem;">Desktop Recommended</h2>
+                <p style="color: #cbd5e1; line-height: 1.6; margin-bottom: 20px; font-size: 1rem;">
+                    This presentation is optimized for desktop viewing. For the best experience, please open it on a desktop or laptop computer.
+                </p>
+                <p style="color: #94a3b8; line-height: 1.5; margin-bottom: 25px; font-size: 0.9rem;">
+                    <strong style="color: #60a5fa;">Navigation:</strong><br>
+                    Press <strong>Enter</strong> or <strong>Arrow Right (→)</strong> to move to the next slide<br>
+                    Press <strong>Arrow Left (←)</strong> to go back
+                </p>
+                <button onclick="this.parentElement.parentElement.remove()" style="padding: 12px 30px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: 0.3s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+                    Continue Anyway
+                </button>
+            `;
+            
+            overlay.appendChild(messageBox);
+            document.body.appendChild(overlay);
+        }
+        
         // Try to enter fullscreen (will likely fail due to browser restrictions)
         setTimeout(function() {
             enterFullscreen();
