@@ -35,11 +35,13 @@
             border-radius: 16px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             border: 1px solid #334155;
+            animation: scaleIn 0.5s ease-out;
         }
 
         .header { 
             text-align: center; 
             margin-bottom: 18px;
+            animation: fadeInUp 0.6s ease-out;
         }
         
         h1 { 
@@ -55,6 +57,8 @@
             font-size: 0.7rem; 
             vertical-align: middle;
             font-weight: 500;
+            display: inline-block;
+            animation: bounceIn 0.8s ease-out 0.3s backwards;
         }
 
         .flow-grid {
@@ -96,8 +100,14 @@
             border: 1.5px solid #475569;
             border-radius: 8px;
             text-align: center;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             cursor: pointer;
+        }
+
+        .node:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+            border-color: var(--primary);
         }
 
         .node.active {
@@ -105,6 +115,7 @@
             box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
             transform: translateY(-2px);
             background: #2d3e5a;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .label { font-size: 0.72rem; font-weight: 600; display: block; margin-top: 4px; }
@@ -164,6 +175,174 @@
             }
         }
 
+        /* Fade in animation for all elements */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes drawArrow {
+            from {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        /* Gradient text animation */
+        h1[style*="background: linear-gradient"] {
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        /* Apply animations to elements when slide is active */
+        .slide.active h1 {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .slide.active h2 {
+            animation: fadeInUp 0.7s ease-out;
+        }
+
+        .slide.active h3 {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .slide.active .node {
+            animation: fadeIn 0.5s ease-out backwards;
+        }
+
+        .slide.active .node:nth-child(1) { animation-delay: 0.1s; }
+        .slide.active .node:nth-child(2) { animation-delay: 0.2s; }
+        .slide.active .node:nth-child(3) { animation-delay: 0.3s; }
+        .slide.active .node:nth-child(4) { animation-delay: 0.4s; }
+        .slide.active .node:nth-child(5) { animation-delay: 0.5s; }
+        .slide.active .node:nth-child(6) { animation-delay: 0.6s; }
+
+        .slide.active .track {
+            animation: fadeInLeft 0.6s ease-out backwards;
+        }
+
+        .slide.active .desc-area {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Animate grid items */
+        .slide.active > div > div[style*="grid"] > div {
+            animation: fadeIn 0.5s ease-out backwards;
+        }
+
+        .slide.active > div > div[style*="grid"] > div:nth-child(1) { animation-delay: 0.1s; }
+        .slide.active > div > div[style*="grid"] > div:nth-child(2) { animation-delay: 0.2s; }
+        .slide.active > div > div[style*="grid"] > div:nth-child(3) { animation-delay: 0.3s; }
+        .slide.active > div > div[style*="grid"] > div:nth-child(4) { animation-delay: 0.4s; }
+        .slide.active > div > div[style*="grid"] > div:nth-child(5) { animation-delay: 0.5s; }
+        .slide.active > div > div[style*="grid"] > div:nth-child(6) { animation-delay: 0.6s; }
+        .slide.active > div > div[style*="grid"] > div:nth-child(7) { animation-delay: 0.7s; }
+        .slide.active > div > div[style*="grid"] > div:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Animate stats/metrics */
+        .slide.active div[style*="font-size: 2"] {
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        /* Animate arrows */
+        .slide.active .arrow,
+        .slide.active div[style*="arrow"] {
+            animation: fadeIn 0.4s ease-out backwards;
+        }
+
         .nav-buttons {
             display: flex;
             justify-content: space-between;
@@ -180,18 +359,25 @@
             cursor: pointer;
             font-size: 0.7rem;
             font-weight: 600;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             flex: 1;
             max-width: 90px;
         }
 
         .nav-btn:hover {
             background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
         }
 
         .nav-btn:disabled {
             background: #475569;
             cursor: not-allowed;
+            transform: none;
         }
 
         .slide-indicator {
@@ -199,6 +385,7 @@
             margin-top: 12px;
             color: #94a3b8;
             font-size: 0.72rem;
+            animation: fadeIn 0.8s ease-out;
         }
     </style>
 </head>
@@ -1478,7 +1665,7 @@
         <span id="slideNum">Slide 1 of 28</span>
     </div>
     
-    <button id="fullscreenBtn" onclick="enterFullscreen()" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: 0.3s; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" onmouseover="this.style.background='#1d4ed8'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='var(--primary)'; this.style.transform='scale(1)'">
+    <button id="fullscreenBtn" onclick="enterFullscreen()" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); animation: bounceIn 1s ease-out 0.5s backwards;" onmouseover="this.style.background='#1d4ed8'; this.style.transform='scale(1.05) translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 99, 235, 0.4)'" onmouseout="this.style.background='var(--primary)'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.3)'"></button>
         🖥️ Presentation Mode
     </button>
 </div>
@@ -1500,6 +1687,37 @@
             document.getElementById('desc').innerText = data[node.id];
         });
     });
+
+    // Add animation classes to elements when slide becomes active
+    function animateSlideElements(slideNum) {
+        const slide = document.getElementById('slide' + slideNum);
+        if (!slide) return;
+
+        // Animate all cards/boxes with staggered delays
+        const cards = slide.querySelectorAll('[style*="background: #334155"], [style*="background: linear-gradient"]');
+        cards.forEach((card, index) => {
+            card.style.animation = `fadeIn 0.5s ease-out ${index * 0.1}s backwards`;
+        });
+
+        // Animate workflow arrows with drawing effect
+        const arrows = slide.querySelectorAll('[style*="arrow"]');
+        arrows.forEach((arrow, index) => {
+            arrow.style.animation = `drawArrow 0.5s ease-out ${index * 0.15 + 0.3}s backwards`;
+            arrow.style.transformOrigin = 'left center';
+        });
+
+        // Animate metrics/stats with bounce
+        const stats = slide.querySelectorAll('[style*="font-size: 2"]');
+        stats.forEach((stat, index) => {
+            stat.style.animation = `bounceIn 0.8s ease-out ${index * 0.2}s backwards`;
+        });
+
+        // Animate list items
+        const listItems = slide.querySelectorAll('li');
+        listItems.forEach((item, index) => {
+            item.style.animation = `fadeInLeft 0.5s ease-out ${index * 0.1 + 0.5}s backwards`;
+        });
+    }
 
     let currentSlide = 1;
     const totalSlides = 30;
@@ -1525,6 +1743,8 @@
                     const newSlideElement = document.getElementById('slide' + currentSlide);
                     if (newSlideElement) {
                         newSlideElement.classList.add('active');
+                        // Trigger element animations
+                        animateSlideElements(currentSlide);
                     }
                 }, 300);
             }
@@ -1561,8 +1781,9 @@
         }
     }
 
-    // Initialize button states
+    // Initialize button states and animate first slide
     changeSlide(0);
+    animateSlideElements(1);
 
     // Keyboard navigation like PowerPoint
     document.addEventListener('keydown', function(event) {
